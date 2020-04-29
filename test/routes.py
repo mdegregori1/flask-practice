@@ -7,8 +7,6 @@ import jwt
 import datetime
 import os
 
-# app.config['SECRET_KEY'] = 'd6b5e117f8fc98bd1e97831d0bea530c'
-
 
 @app.route("/")
 def hello():
