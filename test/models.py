@@ -8,4 +8,4 @@ class User(db.Model):
     # posts = db.relationship('Post', backref="author", lazy=True)
     
     def __repr__(self):
-        return f"User('{self.id}', {self.username})"
+        return f"User('{self.id}', {self.username}, {self.password})"
