@@ -22,12 +22,15 @@ def register():
     if user:
         return "Username already exists"
     
-    entered_password = req["password"]
-    if entered_password:
-        new_user = User(username = req["username"],password = bcrypt.generate_password_hash(entered_password))
+    entered_password_1 = req["password1"]
+    entered_password_2 = req["password2"]
+    if entered_password_1 == entered_password_2:
+        new_user = User(username = req["username"],password = bcrypt.generate_password_hash(entered_password_1))
         db.session.add(new_user)
         db.session.commit()
         return f"Created {new_user}"
+    else:
+        return "Passwords don't match. Try again."
     # hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
     # db.session.add(user)
     # db.session.commit()
